@@ -14,6 +14,8 @@ export default function StarRating({
   maxRating = 5,
   color = "#fcc419",
   size = 48,
+  className = "",
+  message = [],
 }) {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
@@ -30,7 +32,7 @@ export default function StarRating({
   };
 
   return (
-    <div style={containerStyle}>
+    <div style={containerStyle} className={className}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
           <Stars
@@ -44,7 +46,11 @@ export default function StarRating({
           />
         ))}
       </div>
-      <p style={textStyle}>{hoverRating || rating || ""} </p>
+      <p style={textStyle}>
+        {message.length === maxRating
+          ? message[hoverRating ? hoverRating - 1 : rating - 1]
+          : hoverRating || rating || ""}{" "}
+      </p>
     </div>
   );
 }

@@ -11,5 +11,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <StarRating maxRating={5} />
     <StarRating maxRating={5} color="purple" />
     <StarRating maxRating={5} color="blue" size="30" />
+    <StarRating maxRating={5} className="test" />
+    <StarRating
+      maxRating={5}
+      message={["Terrible", "Bad", "OK", "Good", "Amazing"]}
+    />
   </React.StrictMode>
 );
