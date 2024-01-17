@@ -16,12 +16,14 @@ export default function StarRating({
   size = 48,
   className = "",
   message = [],
+  defaultRating = 0,
+  onSetRating,
 }) {
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(defaultRating);
   const [hoverRating, setHoverRating] = useState(0);
 
   function handleRating(rating) {
-    setRating(rating);
+    onSetRating ? onSetRating(rating) : setRating(rating);
   }
 
   const textStyle = {
