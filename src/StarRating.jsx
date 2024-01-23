@@ -11,13 +11,13 @@ const starContainerStyle = {
   display: "flex",
 };
 
-StarRating.protoTypes = {
+StarRating.propTypes = {
   maxRating: PropTypes.number,
-  defaultRating: PropTypes.number,
-  size: PropTypes.number,
   color: PropTypes.string,
-  message: PropTypes.array,
+  size: PropTypes.number,
   className: PropTypes.string,
+  messages: PropTypes.array,
+  defaultRating: PropTypes.number,
   onSetRating: PropTypes.func,
 };
 
@@ -34,8 +34,8 @@ export default function StarRating({
   const [hoverRating, setHoverRating] = useState(0);
 
   function handleRating(rating) {
-    onSetRating(rating);
     setRating(rating);
+    onSetRating(rating);
   }
 
   const textStyle = {

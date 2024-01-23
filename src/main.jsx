@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-// import StarRating from "./StarRating";
-//
+ 
 function Test() {
   const [movierating, setMovieRating] = useState(0);
 
