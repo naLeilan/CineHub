@@ -232,7 +232,20 @@ function Movie({ movie, onSelectMovie }) {
   );
 }
 
+// http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&i=${selectedId}
+
 function MovieDetails({ selectedId, onCloseMovie }) {
+  useEffect(function () {
+    async function getMovieDetails() {
+      const res = await fetch(
+        `https://www.omdbapi.com/?i=${selectedId}&apikey=${KEY}`
+      );
+      const data = await res.json();
+      console.log(data);
+    }
+    getMovieDetails();
+  }, []);
+
   return (
     <div className="detail">
       <button className="btn-back" onClick={onCloseMovie}>
