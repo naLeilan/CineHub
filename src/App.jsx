@@ -246,8 +246,6 @@ function Movie({ movie, onSelectMovie }) {
   );
 }
 
-// http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&i=${selectedId}
-
 function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -303,6 +301,15 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     [selectedId]
   );
 
+  useEffect(
+    function () {
+      if (!title) return;
+
+      document.title = `Movie | ${title}`;
+    },
+    [title]
+  );
+
   return (
     <div className="details">
       {isLoading ? (
@@ -326,8 +333,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
               </p>
             </div>
           </header>
-
-          {/* <p>{avgRating}</p> */}
 
           <section>
             <div className="rating">

@@ -39,6 +39,8 @@ body {
   padding: 0 3.2rem;
   background-color: var(--color-primary);
   border-radius: 0.9rem;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .main {
