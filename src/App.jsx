@@ -304,8 +304,12 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   useEffect(
     function () {
       if (!title) return;
-
       document.title = `Movie | ${title}`;
+
+      //cleanup effect function
+      return function () {
+        document.title = "CineHub ";
+      };
     },
     [title]
   );
