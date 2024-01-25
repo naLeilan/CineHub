@@ -115,6 +115,7 @@ export default function App() {
         return;
       }
 
+      handleCloseMovie();
       fetchMovies();
 
       //cleanup data fetching
@@ -298,17 +299,16 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   //ESC key
   useEffect(
     function () {
-       function callback(e) {
-      if (e.code === "Escape") {
-        onCloseMovie();
-        console.log("closing");
+      function callback(e) {
+        if (e.code === "Escape") {
+          onCloseMovie();
+        }
       }
-    }
-      document.addEventListener("keydown",callback);
+      document.addEventListener("keydown", callback);
       //cleanup effect
-      return function(){
-        document.removeEventListener('keydown',callback)
-      }
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
     },
     [onCloseMovie]
   );
