@@ -9,6 +9,7 @@ export function useMovies(query) {
 
   useEffect(
     function () {
+      // callback?.();
       const controller = new AbortController();
 
       async function fetchMovies() {
@@ -45,7 +46,6 @@ export function useMovies(query) {
         return;
       }
 
-      // handleCloseMovie();
       fetchMovies();
 
       //cleanup data fetching
